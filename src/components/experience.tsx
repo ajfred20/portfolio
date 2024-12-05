@@ -1,19 +1,51 @@
 "use client";
 
 import { formatDate } from "@/utils";
-import { Timeline } from "@/utils/interfaces";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { SectionHeading, PerspectiveText, SlideIn, Transition } from "./ui";
 
-interface ExperienceProps {
-  timeline: Timeline[];
-}
+const Experience = () => {
+  const currentDate = new Date();
 
-const Experience = ({ timeline }: ExperienceProps) => {
-  const experience = timeline
-    .filter((line) => !line.forEducation && line.enabled === true)
-    .sort((a, b) => a.sequence - b.sequence);
+  const experience = [
+    {
+      _id: "1",
+      sequence: 1,
+      enabled: true,
+      forEducation: false,
+      jobTitle: "Frontend Developer",
+      company_name: "Tech Innovators Ltd.",
+      jobLocation: "Lagos, Nigeria",
+      startDate: new Date(2021, 5, 1), // June 2021
+      endDate: new Date(2022, 11, 1), // December 2022
+      summary:
+        "Developed and maintained modern, responsive user interfaces for various client projects.",
+      bulletPoints: [
+        "Implemented reusable components using React and Tailwind CSS.",
+        "Collaborated with designers to optimize UX/UI for client satisfaction.",
+        "Improved website performance, reducing load times by 30%.",
+      ],
+    },
+    {
+      _id: "2",
+      sequence: 2,
+      enabled: true,
+      forEducation: false,
+      jobTitle: "Founder & Full Stack Developer",
+      company_name: "Rydon Africa",
+      jobLocation: "Lagos, Nigeria",
+      startDate: new Date(2023, 0, 4), // January 2023
+      endDate: currentDate, // Dynamic current date
+      summary:
+        "Leading the development of webpage and handling my startup at the same time.",
+      bulletPoints: [
+        "Leading My dev team.",
+        "Handles all devs and Designers.",
+        "Crafting the webpage for our anticipated startup launch.",
+      ],
+    },
+  ];
 
   const [hover, setHover] = useState<number | null>(null);
 

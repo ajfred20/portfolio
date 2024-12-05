@@ -30,7 +30,7 @@
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
 
-    --primary: 190.29deg 51.22% 59.8%;
+    --primary: 190.29deg 51.22% 49.8%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 225deg 6.67% 11.76%;
@@ -58,7 +58,7 @@
 }
 
 .blob {
-  background: conic-gradient(from 2.35rad, #c76000, rgba(7, 29, 228, 0.5));
+  background: conic-gradient(from 2.35rad, #50c700, #07b8e480);
 }
 
 .linkContainer {

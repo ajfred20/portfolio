@@ -15,9 +15,11 @@ interface AboutProps {
 const About = ({ about, timeline }: AboutProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  // Filter, sort, and limit to one timeline entry
   const education = timeline
     .filter((line) => line.forEducation && line.enabled === true)
-    .sort((a, b) => a.sequence - b.sequence);
+    .sort((a, b) => a.sequence - b.sequence)
+    .slice(0, 1); // Only include the first item
 
   return (
     <section
@@ -25,12 +27,17 @@ const About = ({ about, timeline }: AboutProps) => {
       id="about"
     >
       <div>
-        <h3 className="md:text-5xl text-2xl font-bold overflow-hidden uppercase pb-8">
-          <SlideIn>{about.quote}</SlideIn>
+        <h3 className="md:text-5xl text-l font-bold overflow-hidden uppercase pb-8">
+          <SlideIn>Watashi ni tsuite no jōhō wa kochira</SlideIn>
         </h3>
         <Transition viewport={{ once: true }}>
           <p className="text-xl md:text-4xl text-foreground/50">
-            {about.description}
+            As a Web developer with 3 years of experience, I have honed my
+            skills in JavaScript and am currently learning TypeScript to expand
+            my expertise. I pride myself on being a quick learner and attentive
+            listener, which allows me to collaborate effectively with clients to
+            create efficient and scalable solutions. My focus is on developing
+            applications that solve real-world problems.
           </p>
         </Transition>
         <div className="pt-10">
@@ -52,10 +59,10 @@ const About = ({ about, timeline }: AboutProps) => {
         <div className="sticky top-6">
           <Transition>
             <Image
-              src={about.avatar.url}
+              src="/assets/image.jpg"
               width={400}
               height={400}
-              alt={about.name}
+              alt="Aj"
               className="rounded-xl max-md:aspect-square object-cover"
             />
           </Transition>
@@ -87,7 +94,7 @@ const TimelineCard = ({
     >
       <span>0{index + 1}</span>
       <span className="text-xl md:text-3xl font-bold flex-1">
-        {timeline.jobTitle}
+        Frontend Developer Intern
       </span>
       <div className="relative size-6 flex items-center justify-center">
         <span className="bg-primary w-4 md:w-6 h-0.5 absolute" />
@@ -114,29 +121,20 @@ const TimelineCard = ({
       </p>
       <div className="flex justify-between items-center pb-3 text-foreground/80">
         <div className="max-md:text-sm">
-          <span>{timeline.company_name}</span>
-          <span>{timeline.jobLocation}</span>
+          <span>Cubicle Dev Agency</span>
+          <br />
+          <span>Lagos, Nigeria</span>
         </div>
         <div className="max-md:text-xs">
-          <span className="italic">
-            {formatDate(timeline.startDate).month +
-              ", " +
-              formatDate(timeline.startDate).year}
-          </span>
+          <span className="italic">01-2022</span>
           {" - "}
-          <span className="italic">
-            {formatDate(timeline.endDate).month +
-              ", " +
-              formatDate(timeline.endDate).year}
-          </span>
+          <span className="italic">04-2023</span>
         </div>
       </div>
       <ul className="list-disc list-inside">
-        {timeline.bulletPoints.map((point, index) => (
-          <li key={index} className="text-foreground/80 max-md:text-sm">
-            {point}
-          </li>
-        ))}
+        <li className="text-foreground/80 max-md:text-sm">
+          Built responsive and scalable web pages for clients.
+        </li>
       </ul>
     </motion.div>
   </div>

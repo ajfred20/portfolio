@@ -25,8 +25,8 @@ export const ContactUs = ({ email, social_handle, about }: ContactProps) => {
       <span className="blob size-1/2 absolute top-20 right-0 blur-[100px]" />
       <div className="p-4 md:p-8 md:px-16">
         <SectionHeading className="">
-          <SlideIn className="text-white/40">Interested in talking,</SlideIn>{" "}
-          <br /> <SlideIn>let’s do it.</SlideIn>
+          <SlideIn className="text-white/40">You wanna chat,</SlideIn> <br />{" "}
+          <SlideIn>let’s do it.</SlideIn>
         </SectionHeading>
         <div className="grid md:grid-cols-2 gap-10 md:pt-16">
           <div className="space-y-4">
@@ -72,7 +72,7 @@ export const ContactUs = ({ email, social_handle, about }: ContactProps) => {
                   initial="initial"
                   className="border border-white/30 px-8 py-2 rounded-3xl relative overflow-hidden"
                 >
-                  <TextReveal className="uppercase">discuss project</TextReveal>
+                  <TextReveal className="uppercase">Send message</TextReveal>
                 </motion.button>
               </Transition>
             </div>
@@ -84,14 +84,14 @@ export const ContactUs = ({ email, social_handle, about }: ContactProps) => {
               </Transition>
               <div className="text-2xl md:text-4xl font-bold py-2">
                 <Transition>
-                  <TextReveal>{email}</TextReveal>
+                  <TextReveal>ajfred2008@gmail.com</TextReveal>
                 </Transition>
               </div>
               <Transition>
-                <div className="pb-1 text-white/80">{about.phoneNumber}</div>
+                <div className="pb-1 text-white/80">+234 909 161 4903</div>
               </Transition>
               <Transition>
-                <div className="text-white/80">{about.address}</div>
+                <div className="text-white/80">Lagos, Nigeria</div>
               </Transition>
             </div>
 
@@ -114,16 +114,13 @@ export const ContactUs = ({ email, social_handle, about }: ContactProps) => {
       </div>
       <footer className="flex items-center justify-between md:px-8 px-2 py-4 text-sm">
         <Transition>
-          <div>&copy; {new Date().getFullYear()} ThePortfolio</div>
+          <div>&copy; {new Date().getFullYear()} Aj Fred</div>
         </Transition>
         <Transition>
           <p>
-            developed by @
-            <Link
-              href={"https://twitter.com/tehseen_type"}
-              className="hover:underline"
-            >
-              tehseen
+            Portfolio for @
+            <Link href={"https://x.com/iamajfred_"} className="hover:underline">
+              Aj Fred
             </Link>
           </p>
         </Transition>
