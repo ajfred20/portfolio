@@ -9,6 +9,9 @@ const config: Config = {
   darkMode: ["class"],
   theme: {
     extend: {
+      fontFamily: {
+        display: ["var(--font-rische)"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

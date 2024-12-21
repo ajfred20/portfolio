@@ -14,8 +14,8 @@ const Experience = () => {
       sequence: 1,
       enabled: true,
       forEducation: false,
-      jobTitle: "Frontend Developer",
-      company_name: "Tech Innovators Ltd.",
+      jobTitle: "Jnr. Frontend Developer",
+      company_name: "Cubicle Dev Agency",
       jobLocation: "Lagos, Nigeria",
       startDate: new Date(2021, 5, 1), // June 2021
       endDate: new Date(2022, 11, 1), // December 2022
@@ -32,7 +32,7 @@ const Experience = () => {
       sequence: 2,
       enabled: true,
       forEducation: false,
-      jobTitle: "Founder & Full Stack Developer",
+      jobTitle: "Founder & Developer",
       company_name: "Rydon Africa",
       jobLocation: "Lagos, Nigeria",
       startDate: new Date(2023, 0, 4), // January 2023
@@ -43,6 +43,24 @@ const Experience = () => {
         "Leading My dev team.",
         "Handles all devs and Designers.",
         "Crafting the webpage for our anticipated startup launch.",
+      ],
+    },
+    {
+      _id: "3",
+      sequence: 3,
+      enabled: true,
+      forEducation: false,
+      jobTitle: "Freelance Developer",
+      company_name: "Upwork, Fiverr, etc",
+      jobLocation: "Remote",
+      startDate: new Date(2023, 8, 10), // June 2021
+      endDate: currentDate, // Dynamic current date
+      summary:
+        "Developeing and maintaining modern, responsive user interfaces for various client projects.",
+      bulletPoints: [
+        "Implementing reusable components using React and Tailwind CSS.",
+        "Collaboration with designers to optimize UX/UI for client satisfaction.",
+        "Improving website performance, reducing load times by 30%.",
       ],
     },
   ];

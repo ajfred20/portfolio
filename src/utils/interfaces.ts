@@ -60,6 +60,7 @@ export interface Project {
   techStack: string[];
   _id: string;
   enabled: boolean;
+  category: string;
 }
 
 export interface Image {

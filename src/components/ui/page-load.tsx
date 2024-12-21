@@ -37,7 +37,8 @@ export const PageLoad = ({ setHideLoader }: PageLoadProps) => {
         <span className="font-semibold text-white/40">IamAjFred_</span>
         <div className="flex flex-col max-md:justify-between max-md:h-full">
           <p className="text-3xl md:text-5xl w-full md:w-2/5">
-            I develop webpages, user interfaces and web applications that drag attention
+            I develop webpages, user interfaces and web applications that drag
+            attention
           </p>
           <div className="flex justify-between items-end">
             <span className="text-white/30">Loading...</span>

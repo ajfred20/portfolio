@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import localFont from "next/font/local";
+import { Toaster } from "sonner";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const rische = localFont({
+  src: "../fonts/Rische-Bold.woff",
+  variable: "--font-rische",
 });
 
 export const metadata: Metadata = {
@@ -20,8 +27,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} ${rische.variable}`}>
         <Providers>{children}</Providers>
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              background: "#1a1a1a",
+              color: "#fff",
+              border: "1px solid rgba(255,255,255,0.1)",
+            },
+          }}
+        />
       </body>
     </html>
   );

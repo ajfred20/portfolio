@@ -55,20 +55,16 @@ const ProjectsProvider = ({
 
   useEffect(() => {
     if (sort) {
-      const sorted = projects.toSorted((a, b) => a.sequence - b.sequence);
-      setFilteredProjects(sorted);
-      setProjects(sorted);
+      setFilteredProjects([...projects]);
+      setProjects([...projects]);
     }
   }, [sort]);
 
-  const applyFilters = (data: Project[], filterValues: string) => {
-    if (filterValues === "all") {
+  const applyFilters = (data: Project[], filterValue: string) => {
+    if (filterValue === "all") {
       return data;
     }
-
-    return data.filter((project) =>
-      project.techStack.some((tech) => filterValues === tech.trim())
-    );
+    return data.filter((project) => project.category === filterValue);
   };
 
   const value = {

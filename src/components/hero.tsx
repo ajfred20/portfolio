@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { SlideIn, TextReveal, Transition } from "./ui";
+import { Button, SlideIn, TextReveal, Transition } from "./ui";
 import { About } from "@/utils/interfaces";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { PageLoad } from "./ui/page-load";
-import { cn } from "/src/utils/cn";
+import { cn } from "@/utils/cn";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface GradientButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -42,51 +42,56 @@ export function GradientButton({ className, ...props }: GradientButtonProps) {
         </span>
 
         {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.1)_1px,transparent_0)] bg-[length:3px_3px]" />
+        <div className="absolute inset-0 rounded-full " />
       </div>
     </button>
   );
 }
 
-export const Hero = ({ about }: { about: About }) => {
+interface HeroProps {
+  about: About;
+}
+
+export const Hero = ({ about }: HeroProps) => {
   const [hideLoader, setHideLoader] = useState(true);
 
   return (
-    <section className="h-dvh w-dvw overflow-hidden relative">
-      <span className="blob size-1/2 absolute top-20 left-0 blur-[100px]" />
+    <section className="min-h-screen w-full relative flex items-center justify-center py-20 hero-gradient">
+      <span className="blob size-1/2 absolute top-20 left-0 -z-10" />
       {hideLoader ? (
         <PageLoad hideLoader={hideLoader} setHideLoader={setHideLoader} />
       ) : (
-        <div className="relative h-full w-full">
-          <div className="flex items-center justify-center flex-col h-full pb-10">
-            <Transition>
-              <Image
-                src="/assets/image.jpg"
-                width={200}
-                height={200}
-                alt="Aj Fred"
-                className="rounded-full size-28 object-cover"
-              />
-            </Transition>
-            <div className="py-6 flex items-center flex-col">
-              <h1 className="md:text-7xl text-3xl font-bold overflow-hidden">
-                <SlideIn>Hola! I&apos;m AJ Fred</SlideIn>
+        <div className="max-w-8xl mx-auto px-4 flex flex-col items-center text-center">
+          <Transition>
+            <Image
+              src="/assets/fred.png"
+              width={200}
+              height={200}
+              alt={about.name}
+              className="rounded-full size-28 object-cover mb-8 bg-white"
+              priority
+            />
+          </Transition>
+
+          <div className="space-y-8">
+            <div className="space-y-2">
+              <h1 className="hero-title">
+                <span className="gradient-text">Creative</span> frontend
+                <br />
+                dev💚 from <span className="gradient-text">Naija</span>👀
               </h1>
-              <h2 className="md:text-7xl text-3xl overflow-hidden">
-                <SlideIn>A Web Developer</SlideIn>
-              </h2>
             </div>
-            <Transition viewport={{ once: true }} className="w-full">
-              <p className="opacity-70 md:text-xl py-4 w-10/12 md:w-2/3 mx-auto flex flex-wrap justify-center gap-2 text-center">
-                <span>
-                  I craft amazing websites and user interfaces that drag
-                  attention
-                </span>
-              </p>
-            </Transition>
-            <Transition viewport={{ once: true }}>
-              <GradientButton />
-            </Transition>
+
+            <p className="text-white/60 max-w-lg mx-auto">
+              I am a 15yr old techie who develops webpages, user interfaces &
+              programs that drag attention
+            </p>
+
+            <div className="flex flex-col gap-4 items-center">
+              <Link href="https://wa.me/+2349091614903/">
+                <GradientButton />
+              </Link>
+            </div>
           </div>
         </div>
       )}

@@ -7,17 +7,18 @@ import { InfiniteScroll, Transition } from "./ui";
 interface TestimonialProps {
   data: Testimonial[];
   direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
-  pauseOnHover?: boolean;
+  speed: "fast" | "normal";
+  pauseOnHover: boolean;
   className?: string;
 }
 
-const Testimonials = ({
+const Testimonials: React.FC<TestimonialProps> = ({
   data,
-  direction,
-  speed,
-  pauseOnHover,
-}: TestimonialProps) => {
+  direction = "left",
+  speed = "normal",
+  pauseOnHover = true,
+  className,
+}) => {
   return (
     <Transition viewport={{ once: true }}>
       <InfiniteScroll
@@ -75,4 +76,65 @@ const Testimonials = ({
   );
 };
 
-export default Testimonials;
+// Testimonial Data
+const testimonialData = [
+  {
+    _id: "1",
+    review:
+      "His ability to transform ideas to reality is unmatched. His attention to detail and approach far exceeds my expectation. He is truly a master of his craft!",
+    name: "Jeff Nwankwo",
+    position: "Founder, Cubicle Dev Agency",
+    image: {
+      public_id: "testimonial1",
+      url: "/assets/jeff.png",
+    },
+    enabled: true,
+  },
+  {
+    _id: "2",
+    review:
+      "He was fond of saying, 'For dev and designs, I am your guy' and he truly is. I highly recommend him for your webpage needs..",
+    name: "Adesuwa Mary",
+    position: "HR Lead",
+    image: {
+      public_id: "testimonial2",
+      url: "/assets/adesuwa.png",
+    },
+    enabled: true,
+  },
+  {
+    _id: "3",
+    review:
+      "This guy's work is exceptional. His ability to deliver high-quality solutions on time is remarkable. If you want someone who delivers beyond expectations, he's your guy!",
+    name: "Hassan Adebayo",
+    position: "Enterprenuer",
+    image: {
+      public_id: "testimonial3",
+      url: "/assets/hassan.png",
+    },
+    enabled: true,
+  },
+  {
+    _id: "4",
+    review:
+      "His codebase is always clean and he delivers his work on time. He is especially good in frontedn & i recoomend him. I really love working with him 💖",
+    name: "Elochukwu",
+    position: "Partner",
+    image: {
+      public_id: "testimonial3",
+      url: "/assets/elo.png",
+    },
+    enabled: true,
+  },
+];
+
+export default function TestimonialsSection() {
+  return (
+    <Testimonials
+      data={testimonialData}
+      direction="left"
+      speed="normal"
+      pauseOnHover
+    />
+  );
+}

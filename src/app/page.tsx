@@ -1,6 +1,5 @@
 import About from "@/components/about";
 import Header from "@/components/header";
-import Projects from "@/components/projects";
 import Testimonials from "@/components/testimonials";
 import {
   HoverImageLink,
@@ -16,6 +15,7 @@ import Experience from "@/components/experience";
 import { ContactUs } from "@/components/contact-us";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
+import Projects from "@/components/projects";
 
 export default async function Home() {
   const res = await fetch(
@@ -27,13 +27,48 @@ export default async function Home() {
   const {
     about,
     testimonials,
-    services,
     skills,
     projects,
     social_handles,
     timeline,
     email,
   } = user;
+
+  const services = [
+    {
+      _id: "1",
+      name: "Web Development",
+      desc: "I create websites using modern technologies like Next.js, React, and Tailwind CSS. From personal to complex web applications.",
+      charge: "Contact For Pricing",
+      image: {
+        url: "/assets/4.png",
+        public_id: "webdev",
+      },
+      enabled: true,
+    },
+    {
+      _id: "2",
+      name: "UI/UX Design",
+      desc: "I design beautiful & intuitive user interfaces with focus on user experience. I use Figma to create modern & engaging designs.",
+      charge: "Contact For Pricing",
+      image: {
+        url: "/assets/3.png",
+        public_id: "uidesign",
+      },
+      enabled: true,
+    },
+    {
+      _id: "3",
+      name: "Frontend Development",
+      desc: "I build interactive frontend applications with smooth animations and optimal performance. I specialize in React and Next.js.",
+      charge: "Contact For Pricing",
+      image: {
+        url: "/assets/5.png",
+        public_id: "frontend",
+      },
+      enabled: true,
+    },
+  ];
 
   return (
     <main className="relative">
@@ -133,26 +168,31 @@ export default async function Home() {
           <SlideIn>I can help you</SlideIn>
         </SectionHeading>
         <div className="mx-auto pt-10">
-          {services.slice(0, 3).map((service) => (
+          {services.map((service) => (
             <Transition key={service._id}>
               <HoverImageLink
-                heading={service.name || "Service Name"} // Placeholder for heading
+                heading={service.name}
                 href=""
-                price="Contact for pricing" // Price remains unchanged
-                imgSrc={service.image?.url || "https://via.placeholder.com/300"} // Placeholder image URL
-                subheading={service.desc || "Service description goes here"} // Placeholder for subheading
+                price={service.charge}
+                imgSrc={service.image.url}
+                subheading={service.desc}
               />
             </Transition>
           ))}
         </div>
-        <Transition className="flex items-center py-10 md:hidden">
-          <div className="p-4 rounded-full border border-white/50">
-            <span>Discuss the project</span>
-          </div>
-        </Transition>
+        <Link href="https://wa.me/+2349091614903">
+          <Transition className="flex items-center py-10 md:hidden">
+            <div className="p-4 rounded-full border border-white/50">
+              <span>Discuss the project</span>
+            </div>
+          </Transition>
+        </Link>
       </section>
 
       {/* ===PROJECTS SECTION=== */}
+      <section className="py-20 relative" id="projects">
+        <Projects data={projects} />
+      </section>
       {/* ===TESTIMONIALS SECTION=== */}
       <section className="py-20 relative" id="testimonials">
         <span className="blob size-1/2 absolute -top-20 left-0 blur-[100px] -z-10" />

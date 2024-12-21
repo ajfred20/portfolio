@@ -2,18 +2,20 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Nav from "./nav";
-import { TextReveal, Transition } from "./ui";
+import { TextReveal } from "./ui";
 import { useMediaQuery } from "@/utils/useMediaQuery";
 import { menu } from "@/utils/anim";
-import { SocialHandle } from "@/utils/interfaces";
-import Link from "next/link";
 
-interface HeaderProps {
-  social: SocialHandle[];
-}
-const Header = ({ social }: HeaderProps) => {
+const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const isMobile = useMediaQuery("(max-width:768px)");
+
+  // Define the social links directly within the component
+  const social = [
+    { name: "Whatsapp", url: "https://wa.me/+2349091614903/" },
+    { name: "Twitter", url: "https://x.com/iamajfred_" },
+    { name: "GitHub", url: "https://github.com/ajfred20" },
+  ];
 
   return (
     <motion.div
@@ -32,7 +34,22 @@ const Header = ({ social }: HeaderProps) => {
         initial="closed"
       >
         <AnimatePresence>
-          {isActive && <Nav social={social} setIsActive={setIsActive} />}
+          {isActive ? (
+            <Nav
+              social={social.map(({ name, url }) => ({
+                name,
+                url,
+                platform: name,
+                image: {
+                  public_id: "",
+                  url: "",
+                },
+                enabled: true,
+                _id: "",
+              }))}
+              setIsActive={setIsActive}
+            />
+          ) : null}
         </AnimatePresence>
       </motion.div>
       <Button

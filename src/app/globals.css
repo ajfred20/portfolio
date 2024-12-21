@@ -10,7 +10,7 @@
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
 
-    --primary: 82.77deg 97.16% 72.35%;
+    --primary: 204deg 58% 22.6%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 240 4.8% 95.9%;
@@ -21,16 +21,19 @@
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
     --redis-gray: 183, 171, 152;
+
+    --green: #00ff8c;
+    --teal: #00e6c3;
   }
 
   .dark {
-    --background: 240, 10%, 5%;
-    --foreground: 240deg 5.79% 76.27%;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
 
-    --primary: 190.29deg 51.22% 49.8%;
+    --primary: 204deg 58% 47.6%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 225deg 6.67% 11.76%;
@@ -47,7 +50,9 @@
   body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
-
+  body {
+    font-family: "Poppins", sans-serif;
+  }
   *::-webkit-scrollbar-thumb {
     @apply bg-secondary w-0.5 rounded-full;
   }
@@ -58,10 +63,24 @@
 }
 
 .blob {
-  background: conic-gradient(from 2.35rad, #50c700, #07b8e480);
+  background: conic-gradient(from 2.35rad, #004d73, #093f26);
 }
 
 .linkContainer {
   perspective: 120px;
   perspective-origin: bottom;
+}
+
+.hero-title {
+  @apply text-[clamp(3rem,15vw,9rem)] leading-[0.9] font-display;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--green), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-gradient {
+  background: linear-gradient(to bottom, #000000, #031525);
 }

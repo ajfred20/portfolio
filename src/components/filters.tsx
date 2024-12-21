@@ -8,10 +8,8 @@ import { useProjects } from "@/utils/project-context";
 const Filters = () => {
   const { projects, setAppliedFilter, appliedFilter, sort, setSort } =
     useProjects();
-  const techStack = projects.flatMap((filter) =>
-    filter.techStack.map((val) => val.trim())
-  );
-  const filters = Array.from(new Set(techStack));
+  const categories = projects.map((project) => project.category);
+  const filters = Array.from(new Set(categories));
 
   return (
     <div className="flex items-center gap-4 py-8 justify-center max-md:flex-wrap">
