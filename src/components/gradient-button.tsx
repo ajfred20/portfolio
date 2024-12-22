@@ -31,7 +31,7 @@ export function GradientButton({ className, ...props }: GradientButtonProps) {
 
         {/* Button text */}
         <span className="relative z-10 flex items-center">
-          <span className="text-sm">I'm available for work</span>
+          <span className="text-sm">I&apos;m available for work</span>
         </span>
 
         {/* Subtle gradient overlay */}

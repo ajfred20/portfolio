@@ -4,10 +4,12 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 import localFont from "next/font/local";
 import { Toaster } from "sonner";
+import { cn } from "../utils/cn";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
 const rische = localFont({
@@ -27,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${poppins.className} ${rische.variable}`}>
+      <body className={cn(poppins.variable, rische.variable, "font-sans")}>
         <Providers>{children}</Providers>
         <Toaster
           position="top-center"

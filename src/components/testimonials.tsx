@@ -117,7 +117,7 @@ const testimonialData = [
   {
     _id: "4",
     review:
-      "His codebase is always clean and he delivers his work on time. He is especially good in frontedn & i recoomend him. I really love working with him 💖",
+      "His codebase is always clean and he delivers his work on time. He is good in frontend & i recoomend him. I love working with him 💖",
     name: "Elochukwu",
     position: "Partner",
     image: {

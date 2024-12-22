@@ -10,6 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ["var(--font-poppins)"],
         display: ["var(--font-rische)"],
       },
       colors: {

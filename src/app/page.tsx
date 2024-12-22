@@ -39,9 +39,9 @@ export default async function Home() {
       _id: "1",
       name: "Web Development",
       desc: "I create websites using modern technologies like Next.js, React, and Tailwind CSS. From personal to complex web applications.",
-      charge: "Contact For Pricing",
+      charge: "Contact for Pricing",
       image: {
-        url: "/assets/4.png",
+        url: "/assets/2.png",
         public_id: "webdev",
       },
       enabled: true,
@@ -49,8 +49,8 @@ export default async function Home() {
     {
       _id: "2",
       name: "UI/UX Design",
-      desc: "I design beautiful & intuitive user interfaces with focus on user experience. I use Figma to create modern & engaging designs.",
-      charge: "Contact For Pricing",
+      desc: "I design beautiful & intuitive user interfaces with focus on user experience. Using Figma to create modern & engaging designs.",
+      charge: "Contact for Pricing",
       image: {
         url: "/assets/3.png",
         public_id: "uidesign",
@@ -60,10 +60,10 @@ export default async function Home() {
     {
       _id: "3",
       name: "Frontend Development",
-      desc: "I build interactive frontend applications with smooth animations and optimal performance. I specialize in React and Next.js.",
-      charge: "Contact For Pricing",
+      desc: "I build interactive frontend applications with smooth and optimal performance. Specializing in React and Next.js.",
+      charge: "Contact for Pricing",
       image: {
-        url: "/assets/5.png",
+        url: "/assets/4.png",
         public_id: "frontend",
       },
       enabled: true,
@@ -180,13 +180,11 @@ export default async function Home() {
             </Transition>
           ))}
         </div>
-        <Link href="https://wa.me/+2349091614903">
-          <Transition className="flex items-center py-10 md:hidden">
-            <div className="p-4 rounded-full border border-white/50">
-              <span>Discuss the project</span>
-            </div>
-          </Transition>
-        </Link>
+        <Transition className="flex items-center py-10 md:hidden">
+          <div className="p-4 rounded-full border border-white/50">
+            <span>Discuss the project</span>
+          </div>
+        </Transition>
       </section>
 
       {/* ===PROJECTS SECTION=== */}

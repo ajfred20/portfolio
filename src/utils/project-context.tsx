@@ -58,7 +58,7 @@ const ProjectsProvider = ({
       setFilteredProjects([...projects]);
       setProjects([...projects]);
     }
-  }, [sort]);
+  }, [sort, projects]);
 
   const applyFilters = (data: Project[], filterValue: string) => {
     if (filterValue === "all") {
